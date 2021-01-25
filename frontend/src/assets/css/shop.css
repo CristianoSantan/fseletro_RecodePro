@@ -1,0 +1,49 @@
+.header {
+    height: 100px;
+}
+
+.header div {
+    color: #BED4DD;
+    font-size: 4rem;
+    font-family: "Roboto Slab", serif;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-bottom: 1px solid #BED4DD;
+}
+
+.main .section div {
+  width: 263px;
+  height: 587px;
+}
+
+.location-foto {
+  width: 263px;
+  height: 440px;
+  border-right: 4px solid #ed145b;
+  border-bottom: 4px solid #ed145b;
+  border-radius: 20px 0px;
+  box-shadow: 4px 6px 10px #ed145c60;
+}
+
+.location p:nth-child(2) {
+  color: #bed4dd;
+  font: 400 2.8rem/1 "Roboto";
+  margin-top: 30px;
+  text-align: left;
+}
+
+.location p:nth-child(3) {
+  color: #bed4dd;
+  font: 300 2rem/1.4 "Roboto Condensed", sans-serif;
+  text-align: left;
+}
+
+.astronaut4 {
+  position: absolute;
+  top: 210px;
+  left: 0px;
+  width: 300px;
+  z-index: -1;
+}

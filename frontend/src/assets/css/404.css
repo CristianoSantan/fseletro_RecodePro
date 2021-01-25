@@ -1,0 +1,70 @@
+.main {
+  min-height: calc(100vh - 80px - 58px);
+  display: block;
+}
+
+.container {
+  padding: 50px 0;
+}
+
+.container h2 {
+  text-align: center;
+  color: #bed4dd;
+  letter-spacing: 3px;
+  font: 300 7.2rem/1 "Roboto Slab", serif;
+}
+
+.jumbo {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  display: flex;
+  border-bottom: 1px solid #bed4dd;
+}
+
+.jumbo img {
+  width: 440px;
+}
+
+.msgErro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 440px;
+  width: 90%;
+}
+
+.msgErro h1 {
+  text-shadow: 1px 1px 7px #bed4dd;
+  text-align: center;
+  width: 800px;
+  color: #bed4dd;
+  font: 400 16.4rem/1 "Roboto Slab", serif;
+}
+
+.msgErro div {
+  text-align: right;
+}
+
+.msgErro button {
+  margin: 60px 100px 0px 0px;
+  font-size: 2.4rem;
+  width: 204px;
+  height: 47px;
+  color: #ed145b;
+  border: 3px solid #ed145b;
+  border-radius: 10px;
+  background: rgb(0,0,0,0);
+}
+
+.msgErro button:hover {
+  box-shadow: 1px 1px 8px #ed145b;
+  color: #bed4dd;
+  background: #ed145b;
+}
+
+.main p {
+  text-align: center;
+  font: 300 2.8rem/1 "Roboto Slab", serif;
+  color: #bed4dd;
+}

@@ -1,0 +1,27 @@
+.bemvindo {
+  position: relative;
+  height: 430px;
+  border-bottom: 1px solid #bed4dd;
+}
+
+.bemvindo img {
+  position: absolute;
+  right: -36px;
+  bottom: -121px;
+  width: 653px;
+  height: 431px;
+}
+
+.bemvindo h3 {
+  margin-top: 70px;
+  font: 400 clamp(5.4rem, 8vw, 8.4rem)/1.2 "Roboto Slab", serif;
+  color: #bed4dd;
+}
+
+.bemvindo-p {
+  width: 470px;
+  height: 153px;
+  font: 300 clamp(1.8rem, 2vw, 2.8rem)/1.6 "Roboto Slab", serif !important;
+  color: #bed4dd;
+  text-align: left !important;
+}

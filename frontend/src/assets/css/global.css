@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto+Mono:wght@300;400;500&family=Roboto+Slab:wght@300;500;700&family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Slab", serif; */
+}
+
+body {
+  background-image: linear-gradient(
+      90deg,
+      rgba(32,32,36, 0.8)100%,
+      rgba(32,32,36, 0.8)0%
+    ),
+    url('../img/ceu_estrelado.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+  min-height: 100vh;
+  color: white;
+}
+/* Tamanho da fonte do navegador */
+:root {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ED145B;
+  border-radius: 50px;
+  box-shadow: 0 10px 10px #c27c94;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #52343f;
+}
