@@ -17,7 +17,7 @@ export default function Contact() {
 
 
   useEffect(async () => {
-    const url = "http://localhost:3001/messages";
+    const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
     const response = await fetch(url);
     setStudent(await response.json());
   }, [render]);
@@ -27,7 +27,7 @@ export default function Contact() {
     //console.log(event.target);
     const json = JSON.stringify(formData);
 
-    const url = "http://localhost:3001/messages";
+    const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
 
     const options = {
       //dois parametros POST
@@ -68,7 +68,7 @@ export default function Contact() {
   const formatDate = (rawDate) => {
     const myDate = new Date(rawDate);
     const d = myDate.getDay();
-    const mo = myDate.getMonth();
+    const mo = myDate.getMonth()+1;
     const y = myDate.getFullYear();
     const h = myDate.getHours();
     const mi = myDate.getMinutes();
@@ -92,6 +92,7 @@ export default function Contact() {
             <p>contato@fseltro.com</p>
           </div>
           <form
+            method="post"
             onSubmit={handleSubmit}
           >
             <div className="form-group">

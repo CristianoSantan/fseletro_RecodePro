@@ -7,41 +7,6 @@
   font: 300 clamp(2.8rem, 2vw, 3.6rem) / 1.6 "Roboto Slab", serif;
 }
 
-.card-produto {
-  text-align: center;
-  width: 263px;
-  height: 440px;
-  background: #202024;
-  border-right: 4px solid #ed145b;
-  border-bottom: 4px solid #ed145b;
-  border-radius: 20px 0px;
-  box-shadow: 4px 6px 10px #ed145c60;
-}
-
-.card-produto img {
-  margin-top: 20px;
-  height: 220px;
-}
-
-.card-produto p:nth-child(2) {
-  font: 300 clamp(2rem, 2vw, 2.4rem) / 1.2 "Roboto Condensed", sans-serif;
-  color: white;
-  width: 80%;
-  margin: 0px auto 12px;
-  padding-bottom: 17px;
-  border-bottom: 1px solid #ed145b;
-}
-
-.card-produto p:nth-child(3) {
-  font: 300 clamp(2rem, 2vw, 2.4rem) / 1.2 "Roboto Condensed", sans-serif;
-  text-decoration-line: line-through;
-}
-
-.card-produto p:nth-child(4) {
-  font: 300 clamp(3.2rem, 3vw, 3.8rem) / 1.2 "Roboto Condensed", sans-serif;
-  color: red;
-}
-
 .astronaut3 {
     position: absolute;
     top: 328px;
