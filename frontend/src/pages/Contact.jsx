@@ -6,64 +6,98 @@ import wtz from "../assets/img/whatsapp.png";
 import astronaut5 from "../assets/img/astronauta5.png";
 
 export default function Contact() {
-  const [student, setStudent] = useState([]);
-  const [render, setRender] = useState(false);
-  const [msg, setMsg] = useState(false);
-  const [emptyField, setEmptyField] = useState(true);
-  const [formData, setFormData] = useState({
-    nome: '',
-    msg: '',
-  });
+  // const [student, setStudent] = useState([]);
+  // const [render, setRender] = useState(false);
+  // const [msg, setMsg] = useState(false);
+  // const [emptyField, setEmptyField] = useState(true);
+  // const [formData, setFormData] = useState({
+  //   nome: '',
+  //   msg: '',
+  // });
 
 
-  useEffect(async () => {
-    const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
-    const response = await fetch(url);
-    setStudent(await response.json());
-  }, [render]);
+  // useEffect(async () => {
+  //   const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
+  //   const response = await fetch(url);
+  //   setStudent(await response.json());
+  // }, [render]);
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   //console.log(event.target);
+  //   const json = JSON.stringify(formData);
+
+  //   const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
+
+  //   const options = {
+  //     //dois parametros POST
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: json,
+  //   }
+
+  //   fetch(url, options)
+  //     .then((response) => response.json())
+  //     .then((dados) => {
+  //       setRender(!render);
+  //       setMsg(dados); //Configurado para verdadeiro
+  //       document.getElementByTagName('form')[0].reset();
+
+  //       setTimeout(() => {
+  //         setMsg(false);
+  //         setEmptyField(true);
+  //       }, 2000);
+  //     });
+  // }
+
+  // const handleChange = (event) => {
+  //   // Checking if it's empty or not
+  //   const nome = document.getElementById('nome').value;
+  //   const msg = document.getElementById('msg').value;
+  //   nome === '' || msg === '' ? setEmptyField(true) : setEmptyField(false);
+
+  //   // Updating formData object
+  //   setFormData({
+  //     ...formData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  const [student, setStudent] = React.useState([])
+  const [render, setRender] = React.useState(false)
+  const [msg, setMsg] = React.useState(false)
+  const [nome, setNome] = React.useState("");
+  const [mensagem, setMensagens] = React.useState("");
+
+  React.useEffect(async () => {
+      const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
+      const response = await fetch(url);
+      setStudent(await response.json());
+  }, [render])
 
   function handleSubmit(event) {
-    event.preventDefault();
-    //console.log(event.target);
-    const json = JSON.stringify(formData);
+      event.preventDefault();
+      //console.log(event.target);
+      let formData = new FormData(event.target)
 
-    const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
+      const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
 
-    const options = {
-      //dois parametros POST
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: json,
-    }
+      fetch(url, {//dois parametros POST
+          method: "POST",
+          body: formData
+      }).then((response) => response.json()).then((dados) => {
+          setRender(!render);
+          setMensagens("");
+          setNome("");
+          setMsg(dados); //Configurado para verdadeiro
+          setTimeout(() => {
+              setMsg(false);
+          }, 2000)
+      })
 
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((dados) => {
-        setRender(!render);
-        setMsg(dados); //Configurado para verdadeiro
-        document.getElementByTagName('form')[0].reset();
-
-        setTimeout(() => {
-          setMsg(false);
-          setEmptyField(true);
-        }, 2000);
-      });
   }
-
-  const handleChange = (event) => {
-    // Checking if it's empty or not
-    const nome = document.getElementById('nome').value;
-    const msg = document.getElementById('msg').value;
-    nome === '' || msg === '' ? setEmptyField(true) : setEmptyField(false);
-
-    // Updating formData object
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
 
   const formatDate = (rawDate) => {
     const myDate = new Date(rawDate);
@@ -97,7 +131,7 @@ export default function Contact() {
           >
             <div className="form-group">
               <input
-                onChange={handleChange}
+                 value={nome} onChange={(event) => setNome(event.target.value)}
                 type="text"
                 className="form-control"
                 id="nome"
@@ -105,7 +139,7 @@ export default function Contact() {
                 placeholder="Nome:"
               />
               <input
-                onChange={handleChange}
+                 value={mensagem} onChange={(event) => setMensagens(event.target.value)}
                 type="text"
                 className="form-control"
                 id="msg"

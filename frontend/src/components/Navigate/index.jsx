@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import React from "react";
 
 import "./styles.css";
@@ -10,9 +10,9 @@ export default function Nav() {
     <>
       <nav id="menu" className="navbar navbar-expand-lg shadow">
         <div className="container w-100">
-          <Link className="navbar-brand w-25" to="/">
+          <NavLink className="navbar-brand w-25" to="/">
             <img width="110px" src={logo} alt="Logo" />
-          </Link>
+          </NavLink>
 
           <button
             className="navbar-toggler"
@@ -30,24 +30,24 @@ export default function Nav() {
           <div className="collapse navbar-collapse w-75 " id="collapseNavbar">
             <ul className="nav w-100 d-flex justify-content-between flex-column flex-sm-row ">
               <li className="nav-item">
-                <Link className="nav-link" to="/products">
+                <NavLink className="nav-link" to="/products">
                   <span>Produto</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/shop">
+                <NavLink className="nav-link" to="/shop">
                   <span>Lojas</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contact">
+                <NavLink className="nav-link" to="/contact">
                   <span>Contato</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link mr-5" to="/car">
+                <NavLink className="nav-link mr-5" to="/car">
                   <span>Carrinho</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
