@@ -4,7 +4,6 @@ import Card from "../components/Card";
 
 import "../assets/css/products.css";
 
-import geladeira from "../assets/img/Geladeira Frost Free Brastemp Side Inverse 540 litros.png";
 import astronaut from "../assets/img/astronauta3.png";
 
 export default class Products extends React.Component {
@@ -21,7 +20,7 @@ export default class Products extends React.Component {
   // -------------------------------------   Api Produtos
   exibirProdutos() {
     fetch(
-      "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Produtos.php"
+      "http://localhost:3001/products"
     )
       .then((response) => response.json())
       .then((responseJson) => {

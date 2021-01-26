@@ -33,7 +33,7 @@ export default function Shop() {
           </div>
         </div>
       </div>
-      <img className="astronaut4" src={astronaut4} />
+      <img className="astronaut4" src={astronaut4} alt="" />
     </>
   );
 }

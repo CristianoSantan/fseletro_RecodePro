@@ -11,10 +11,10 @@ export default class Car extends React.Component {
     };
     this.exibirProdutos();
   }
-  // -------------------------------------   Api Produtos
+  // -------------------------------------   Api Pedidos
   exibirProdutos() {
     fetch(
-      "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Pedidos.php"
+      "http://localhost:3001/carrinho"
     )
       .then((response) => response.json())
       .then((responseJson) => {
@@ -31,8 +31,8 @@ export default class Car extends React.Component {
           <div className="container">Carrinho</div>
         </div>
         <div className="section">
-          <div className="car">
-            <table class="table table-hover table-responsive">
+          <div className="car  table-responsive p-5">
+            <table class="table table-hover text-center">
               <thead>
                 <tr>
                   <th scope="col">#</th>

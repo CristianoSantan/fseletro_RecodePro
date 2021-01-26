@@ -29,13 +29,19 @@ server.get("/messages", (req, res) => {
   );
 });
 
-server.post("/messsages", (req, res) => {
+server.post("/messages", (req, res) => {
   const { nome, msg } = req.body;
   connection.query(
     `INSERT INTO comentarios (nome, msg) VALUES ('${nome}', '${msg}')`,
     (error, result) => {
-      error && res.json(error);
-      result && res.status(201).json(result);
+      error && res.status(400).json({
+        error: true,
+        message: "Erro: não cadastrou"
+      });
+      result && res.status(201).json({
+        result: true,
+        message: "Cadastrada com sucesso!"
+      });
     }
   );
 });

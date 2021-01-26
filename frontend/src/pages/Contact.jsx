@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 
 import "../assets/css/contact.css";
 import email from "../assets/img/email.png";
@@ -14,7 +14,6 @@ export default function Contact() {
   //   nome: '',
   //   msg: '',
   // });
-
 
   // useEffect(async () => {
   //   const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
@@ -65,44 +64,95 @@ export default function Contact() {
   //   });
   // };
 
-  const [student, setStudent] = React.useState([])
-  const [render, setRender] = React.useState(false)
-  const [msg, setMsg] = React.useState(false)
-  const [nome, setNome] = React.useState("");
-  const [mensagem, setMensagens] = React.useState("");
+  // const [student, setStudent] = useState([]);
+  // const [render, setRender] = useState(false);
+  // const [msg, setMsg] = useState(false);
+  // const [nome, setNome] = useState("");
+  // const [mensagem, setMensagens] = useState("");
 
-  React.useEffect(async () => {
-      const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
-      const response = await fetch(url);
-      setStudent(await response.json());
-  }, [render])
+  // useEffect(async () => {
+  //   const url = "http://localhost:3001/messages";
+  //   const response = await fetch(url);
+  //   setStudent(await response.json());
+  // });
 
-  function handleSubmit(event) {
-      event.preventDefault();
-      //console.log(event.target);
-      let formData = new FormData(event.target)
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   console.log(event.target);
+  //   const formData = new FormData(this);
 
-      const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
+  //   const url = "http://localhost:3001/messages";
 
-      fetch(url, {//dois parametros POST
-          method: "POST",
-          body: formData
-      }).then((response) => response.json()).then((dados) => {
-          setRender(!render);
-          setMensagens("");
-          setNome("");
-          setMsg(dados); //Configurado para verdadeiro
-          setTimeout(() => {
-              setMsg(false);
-          }, 2000)
-      })
+  //   fetch(url, {
+  //     //dois parametros POST
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: formData,
+  //   })
+  //     .then((response) => response.json())
+  //     .then((dados) => {
+  //       setRender(!render);
+  //       setMensagens("");
+  //       setNome("");
+  //       setMsg(dados); //Configurado para verdadeiro
+  //       setTimeout(() => {
+  //         setMsg(false);
+  //       }, 2000);
+  //     });
+  // }
 
-  }
+  const [msg, setMsg] = useState({
+    formSave: false,
+    type: "",
+    message: "",
+  });
+  const [formData, setFormData] = useState({
+    nome: "",
+    msg: "",
+  });
+
+  const onChangeInput = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const sendForm = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:3001/messages", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const responseEnv = await res.json();
+
+      if (responseEnv.error) {
+        setMsg({
+          formSave: false,
+          type: "error",
+          message: responseEnv.message,
+        });
+      } else {
+        setMsg({
+          formSave: false,
+          type: "success",
+          message: responseEnv.message,
+        });
+      }
+    } catch (err) {
+      setMsg({
+        formSave: false,
+        type: "error",
+        message: "Erro: mensagem não cadastrada, tente mais tarde!",
+      });
+    }
+  };
 
   const formatDate = (rawDate) => {
     const myDate = new Date(rawDate);
     const d = myDate.getDay();
-    const mo = myDate.getMonth()+1;
+    const mo = myDate.getMonth() + 1;
     const y = myDate.getFullYear();
     const h = myDate.getHours();
     const mi = myDate.getMinutes();
@@ -125,13 +175,10 @@ export default function Contact() {
             <img src={email} alt="email" />
             <p>contato@fseltro.com</p>
           </div>
-          <form
-            method="post"
-            onSubmit={handleSubmit}
-          >
+          <form onSubmit={sendForm}>
             <div className="form-group">
               <input
-                 value={nome} onChange={(event) => setNome(event.target.value)}
+                onChange={onChangeInput}
                 type="text"
                 className="form-control"
                 id="nome"
@@ -139,7 +186,7 @@ export default function Contact() {
                 placeholder="Nome:"
               />
               <input
-                 value={mensagem} onChange={(event) => setMensagens(event.target.value)}
+                onChange={onChangeInput}
                 type="text"
                 className="form-control"
                 id="msg"
@@ -152,22 +199,32 @@ export default function Contact() {
                 className="btn btn-block"
                 value="Enviar"
               />
-              {msg && (
+              {msg.type === "success" ? (
                 <div
                   className="alert alert-success position-absolute mx-auto mt-4 w-50 text-center"
                   role="alert"
                 >
-                  <span className="lead text-dark">
-                    Mensagem enviada com sucesso!
-                  </span>
+                  <span className="lead text-dark">{msg.message}</span>
                 </div>
+              ) : (
+                ""
+              )}
+              {msg.type === "error" ? (
+                <div
+                  className="alert alert-danger position-absolute mx-auto mt-4 w-50 text-center"
+                  role="alert"
+                >
+                  <span className="lead text-dark">{msg.message}</span>
+                </div>
+              ) : (
+                ""
               )}
             </div>
           </form>
         </div>
         <div className="messages">
           <h4>Mensagens</h4>
-          {student.map((row) => (
+          {/* {student.map((row) => (
             <div className="media text-muted pt-3  border-bottom">
               <svg
                 className="bd-placeholder-img mr-2 rounded"
@@ -193,10 +250,10 @@ export default function Contact() {
                 <p className="d-block">{row.msg}</p>
               </div>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
-      <img className="astronaut5" src={astronaut5} />
+      <img className="astronaut5" src={astronaut5} alt="" />
     </>
   );
 }
