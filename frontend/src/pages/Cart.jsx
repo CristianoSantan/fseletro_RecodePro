@@ -1,9 +1,9 @@
 import React from "react";
 
-import "../assets/css/car.css";
+import "../assets/css/cart.css";
 import astronaut6 from "../assets/img/astronauta6.png";
 
-export default class Car extends React.Component {
+export default class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

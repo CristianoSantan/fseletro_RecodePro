@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../assets/css/contact.css";
 import email from "../assets/img/email.png";
@@ -6,103 +6,8 @@ import wtz from "../assets/img/whatsapp.png";
 import astronaut5 from "../assets/img/astronauta5.png";
 
 export default function Contact() {
-  // const [student, setStudent] = useState([]);
-  // const [render, setRender] = useState(false);
-  // const [msg, setMsg] = useState(false);
-  // const [emptyField, setEmptyField] = useState(true);
-  // const [formData, setFormData] = useState({
-  //   nome: '',
-  //   msg: '',
-  // });
-
-  // useEffect(async () => {
-  //   const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
-  //   const response = await fetch(url);
-  //   setStudent(await response.json());
-  // }, [render]);
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   //console.log(event.target);
-  //   const json = JSON.stringify(formData);
-
-  //   const url = "http://localhost/RECODE_Pro/GUERREIRO%20JEDI/REACT/FullStackEletro/fseletro/src/Backend/Api_Mensagens.php";
-
-  //   const options = {
-  //     //dois parametros POST
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: json,
-  //   }
-
-  //   fetch(url, options)
-  //     .then((response) => response.json())
-  //     .then((dados) => {
-  //       setRender(!render);
-  //       setMsg(dados); //Configurado para verdadeiro
-  //       document.getElementByTagName('form')[0].reset();
-
-  //       setTimeout(() => {
-  //         setMsg(false);
-  //         setEmptyField(true);
-  //       }, 2000);
-  //     });
-  // }
-
-  // const handleChange = (event) => {
-  //   // Checking if it's empty or not
-  //   const nome = document.getElementById('nome').value;
-  //   const msg = document.getElementById('msg').value;
-  //   nome === '' || msg === '' ? setEmptyField(true) : setEmptyField(false);
-
-  //   // Updating formData object
-  //   setFormData({
-  //     ...formData,
-  //     [event.target.name]: event.target.value,
-  //   });
-  // };
-
-  // const [student, setStudent] = useState([]);
-  // const [render, setRender] = useState(false);
-  // const [msg, setMsg] = useState(false);
-  // const [nome, setNome] = useState("");
-  // const [mensagem, setMensagens] = useState("");
-
-  // useEffect(async () => {
-  //   const url = "http://localhost:3001/messages";
-  //   const response = await fetch(url);
-  //   setStudent(await response.json());
-  // });
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   console.log(event.target);
-  //   const formData = new FormData(this);
-
-  //   const url = "http://localhost:3001/messages";
-
-  //   fetch(url, {
-  //     //dois parametros POST
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: formData,
-  //   })
-  //     .then((response) => response.json())
-  //     .then((dados) => {
-  //       setRender(!render);
-  //       setMensagens("");
-  //       setNome("");
-  //       setMsg(dados); //Configurado para verdadeiro
-  //       setTimeout(() => {
-  //         setMsg(false);
-  //       }, 2000);
-  //     });
-  // }
-
+  const [student, setStudent] = useState([]);
+  const [render, setRender] = useState(false);
   const [msg, setMsg] = useState({
     formSave: false,
     type: "",
@@ -112,6 +17,11 @@ export default function Contact() {
     nome: "",
     msg: "",
   });
+
+  useEffect(async () => {
+    const response = await fetch("http://localhost:3001/messages");
+    setStudent(await response.json());
+  }, [render]);
 
   const onChangeInput = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -123,7 +33,13 @@ export default function Contact() {
         method: "POST",
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
-      });
+      }).then((dados) => {
+          setRender(!render);
+          setFormData({
+            nome: "",
+            msg: "",
+          });
+        });
 
       const responseEnv = await res.json();
 
@@ -140,13 +56,17 @@ export default function Contact() {
           message: responseEnv.message,
         });
       }
-    } catch (err) {
+    }catch(err){
       setMsg({
         formSave: false,
         type: "error",
         message: "Erro: mensagem não cadastrada, tente mais tarde!",
       });
     }
+
+    setTimeout(() => {
+      setMsg(false);
+    }, 2000);
   };
 
   const formatDate = (rawDate) => {
@@ -175,9 +95,10 @@ export default function Contact() {
             <img src={email} alt="email" />
             <p>contato@fseltro.com</p>
           </div>
-          <form onSubmit={sendForm}>
+          <form onSubmit={sendForm} name="form">
             <div className="form-group">
               <input
+                value={formData.nome}
                 onChange={onChangeInput}
                 type="text"
                 className="form-control"
@@ -186,6 +107,7 @@ export default function Contact() {
                 placeholder="Nome:"
               />
               <input
+                value={formData.msg}
                 onChange={onChangeInput}
                 type="text"
                 className="form-control"
@@ -224,7 +146,7 @@ export default function Contact() {
         </div>
         <div className="messages">
           <h4>Mensagens</h4>
-          {/* {student.map((row) => (
+          {student.map((row) => (
             <div className="media text-muted pt-3  border-bottom">
               <svg
                 className="bd-placeholder-img mr-2 rounded"
@@ -250,7 +172,7 @@ export default function Contact() {
                 <p className="d-block">{row.msg}</p>
               </div>
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
       <img className="astronaut5" src={astronaut5} alt="" />

@@ -45,7 +45,7 @@ export default function Nav() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link mr-5" to="/car">
+                <NavLink className="nav-link mr-5" to="/cart">
                   <span>Carrinho</span>
                 </NavLink>
               </li>

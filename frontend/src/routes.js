@@ -5,7 +5,7 @@ import Home from "./pages/Home.jsx";
 import Products from "./pages/Products.jsx";
 import Shop from "./pages/Shop.jsx";
 import Contact from "./pages/Contact.jsx";
-import Car from "./pages/Car.jsx";
+import Cart from "./pages/Cart.jsx";
 import Error from "./pages/404.jsx";
 
 export default function MainRoutes() {
@@ -15,7 +15,7 @@ export default function MainRoutes() {
       <Route path="/products" element={<Products />} />
       <Route path="/shop" element={<Shop />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/car" element={<Car />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

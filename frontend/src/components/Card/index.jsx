@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import "./style.css";
 
 export default class Card extends Component {
+
   destaqueProd(event) {
     let tam = event.target.style.height;
     let estilo = ""
 
     tam === "210px" ? estilo = "height: 190px" : estilo = "height: 210px; margin-top: 10px";
-
-    event.target.style = estilo
+    return (event.target.style = estilo);
   }
 
   render() {

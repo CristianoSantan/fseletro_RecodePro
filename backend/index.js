@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
   database: "fseletro",
 });
 
-server.get("/products", function (req, res) {
+server.get("/products", (req, res) => {
   connection.query("SELECT * FROM produtos", (error, result) => {
     res.json(result ? result : error);
   });
