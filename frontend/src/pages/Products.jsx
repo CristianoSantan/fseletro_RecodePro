@@ -6,28 +6,15 @@ import "../assets/css/products.css";
 
 import astronaut from "../assets/img/astronauta3.png";
 
+
 export default class Products extends React.Component {
+
+
   constructor(props) {
     super(props);
-    this.state = {
-      db: [],
-    };
-    this.exibirProdutos();
+    // this.exibirProdutos();
     this.exibirCategoria = this.exibirCategoria.bind(this);
     this.exibirTodos = this.exibirTodos.bind(this);
-  }
-
-  // -------------------------------------   Api Produtos
-  exibirProdutos() {
-    fetch(
-      "http://localhost:3001/products"
-    )
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          db: responseJson,
-        });
-      });
   }
 
   //  -----------------------------------   Exibição por categoria
@@ -104,7 +91,7 @@ export default class Products extends React.Component {
             </div>
           </div>
 
-          <Card arrayProdutos={this.state.db} />
+          <Card />
           
           <img className="astronaut3" src={astronaut} alt="" />
         </div>

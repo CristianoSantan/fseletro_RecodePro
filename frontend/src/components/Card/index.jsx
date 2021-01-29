@@ -1,9 +1,26 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import "./style.css";
 
-export default class Card extends Component {
+export default function Card() {
+  const dispatch = useDispatch();
+  const [arrayProdutos, setArrayProdutos] = useState([]);
 
-  destaqueProd(event) {
+  // -------------------------------------   Api Products
+  useEffect(async () => {
+    const response = await fetch("http://localhost:3001/products");
+    setArrayProdutos(await response.json());
+  }, []);
+
+  function handleAdd(buy){
+    dispatch({
+      type: 'ADD_COMPRA',
+      buy
+    })
+  }
+
+  const destaqueProd = (event) => {
     let tam = event.target.style.height;
     let estilo = ""
 
@@ -11,27 +28,31 @@ export default class Card extends Component {
     return (event.target.style = estilo);
   }
 
-  render() {
+  
     return (
       <div className="section-cards container row">
-        {this.props.arrayProdutos.map((row) => (
-          <div
+        {arrayProdutos.map(buy => (
+          <div key={buy.id}
             className="card-produto col-lg-3 col-md-4 col-sm-6 col-xs-9"
-            id={row.categoria}
+            id={buy.categoria}
           >
             <img
-              src={row.imagem}
-              onMouseOver={this.destaqueProd}
-              onMouseOut={this.destaqueProd}
-              id={row.idproduto}
+              src={buy.imagem}
+              onMouseOver={destaqueProd}
+              onMouseOut={destaqueProd}
+              id={buy.idproduto}
               alt=""
             />
-            <p>{row.descricao}</p>
-            <p>R$ {row.preco}</p>
-            <p>R$ {row.precofinal}</p>
+            <p>{buy.descricao}</p>
+            <p>R$ {buy.preco}</p>
+            <p>R$ {buy.precofinal}</p>
+            <button 
+            type="button"
+            className="btn"
+            onClick={ () => handleAdd(buy) }  
+            >Comprar</button>
           </div>
         ))}
       </div>
     );
-  }
 }

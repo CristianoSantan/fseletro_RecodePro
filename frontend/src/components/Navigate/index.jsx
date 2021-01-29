@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
+import { useSelector } from "react-redux";
 
 import "./styles.css";
 
 import logo from "../../assets/img/Full-Stack_logo.svg";
 
 export default function Nav() {
-  return (
+  const carrinhoSize = useSelector(state => state.carrinho.length);
+
+   return (
     <>
       <nav id="menu" className="navbar navbar-expand-lg shadow">
         <div className="container w-100">
@@ -46,7 +49,7 @@ export default function Nav() {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link mr-5" to="/cart">
-                  <span>Carrinho</span>
+                  <span>Carrinho {carrinhoSize}</span>
                 </NavLink>
               </li>
             </ul>

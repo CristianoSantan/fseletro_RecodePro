@@ -147,7 +147,7 @@ export default function Contact() {
         <div className="messages">
           <h4>Mensagens</h4>
           {student.map((row) => (
-            <div className="media text-muted pt-3  border-bottom">
+            <div key={student.id} className="media text-muted pt-3  border-bottom">
               <svg
                 className="bd-placeholder-img mr-2 rounded"
                 width="32"
