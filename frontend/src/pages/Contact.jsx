@@ -18,9 +18,12 @@ export default function Contact() {
     msg: "",
   });
 
-  useEffect(async () => {
-    const response = await fetch("http://localhost:3001/messages");
-    setStudent(await response.json());
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const response = await fetch("http://localhost:3001/messages");
+      setStudent(await response.json());
+    }
+    fetchMyAPI();
   }, [render]);
 
   const onChangeInput = (e) =>

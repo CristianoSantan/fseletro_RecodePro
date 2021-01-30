@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
+import { IoTrashOutline } from "react-icons/io5";
 import "../assets/css/cart.css";
 import astronaut6 from "../assets/img/astronauta6.png";
 
+// import Requests from "../components/Requests";
+
 export default function Cart() {
+  const dispatch = useDispatch();
+  const compras = useSelector((state) => state.carrinho);
 
-  const compras = useSelector(state => state.carrinho)
-  const [arrayCart, setArrayCart] = useState([]);
-
-  // -------------------------------------   Api Pedidos
-  useEffect(async () => {
-    const response = await fetch("http://localhost:3001/carrinho");
-    setArrayCart(await response.json());
-  }, []);
+  function handleRemove(id) {
+    dispatch({
+      type: "REMOVE_BUY",
+      id,
+    });
+  }
 
   return (
     <>
@@ -22,8 +24,7 @@ export default function Cart() {
       </div>
       <div className="section">
         <div className="car table-responsive p-5">
-
-        <table class="table table-hover text-center">
+          <table class="table table-hover text-center">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -32,6 +33,7 @@ export default function Cart() {
                 <th scope="col">R$ Unidade</th>
                 <th scope="col">Quant.</th>
                 <th scope="col">R$ Total</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -41,38 +43,26 @@ export default function Cart() {
                   <td>{buy.categoria}</td>
                   <td>{buy.descricao}</td>
                   <td>{buy.precofinal}</td>
-                  <td> x </td>
-                  <td> x </td>
+                  <td>{buy.amount}</td>
+                  <td>x</td>
+                  <td>
+                    <button
+                      type="button"
+                      onClick={() => handleRemove(buy.id)}
+                      style={{ background: "transparent", border: "none" }}
+                    >
+                      <div>
+                        <IoTrashOutline size={16} color="#FFF" />
+                      </div>
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
 
+          {/* <Requests /> */}
 
-          {/* <table class="table table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Unidade</th>
-                <th scope="col">Quant.</th>
-                <th scope="col">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {arrayCart.map((buy) => (
-                <tr>
-                  <th scope="row">{buy.idpedidos}</th>
-                  <td>{buy.nomeCliente}</td>
-                  <td>{buy.descricao}</td>
-                  <td>{buy.precofinal}</td>
-                  <td>{buy.quantidade}</td>
-                  <td>{buy.total}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table> */}
         </div>
       </div>
       <img className="astronaut6" src={astronaut6} alt="" />
