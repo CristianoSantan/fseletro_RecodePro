@@ -18,6 +18,13 @@
   height: 587px;
 }
 
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .location-foto {
   width: 263px;
   height: 440px;
@@ -28,6 +35,7 @@
 }
 
 .location p:nth-child(2) {
+  width: 263px;
   color: #bed4dd;
   font: 400 2.8rem/1 "Roboto";
   margin-top: 30px;
@@ -35,6 +43,7 @@
 }
 
 .location p:nth-child(3) {
+  width: 263px;
   color: #bed4dd;
   font: 300 2rem/1.4 "Roboto Condensed", sans-serif;
   text-align: left;

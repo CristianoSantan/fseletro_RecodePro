@@ -29,12 +29,12 @@ export default function Card() {
 
     tam === "210px"
       ? (estilo = "height: 190px")
-      : (estilo = "height: 210px; margin-top: 10px");
+      : (estilo = "height: 210px; margin: 10px 0px");
     return (event.target.style = estilo);
   };
 
   return (
-    <div className="section-cards container row">
+    <div className="section-cards container row justify-content-around my-5">
       {arrayProdutos.map((buy) => (
         <div
           key={buy.id}

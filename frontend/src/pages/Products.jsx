@@ -1,9 +1,7 @@
 import React from "react";
 
-import Card from "../components/Card";
-
 import "../assets/css/products.css";
-
+import Card from "../components/Card";
 import astronaut from "../assets/img/astronauta3.png";
 
 
@@ -44,44 +42,44 @@ export default class Products extends React.Component {
         <div className="main">
           <div className="header">
             <div className="content">
-              <ul class="nav">
+              <ul className="nav">
                 <li
-                  class="nav-item mx-4"
+                  className="nav-item mx-4"
                   type="button"
                   onClick={() => this.exibirTodos()}
                 >
                   Todos
                 </li>
                 <li
-                  class="nav-item mx-4"
+                  className="nav-item mx-4"
                   type="button"
                   onClick={() => this.exibirCategoria("geladeira")}
                 >
                   Geladeiras
                 </li>
                 <li
-                  class="nav-item mx-4"
+                  className="nav-item mx-4"
                   type="button"
                   onClick={() => this.exibirCategoria("fogao")}
                 >
                   Fogões
                 </li>
                 <li
-                  class="nav-item mx-4"
+                  className="nav-item mx-4"
                   type="button"
                   onClick={() => this.exibirCategoria("microondas")}
                 >
                   Microondas
                 </li>
                 <li
-                  class="nav-item mx-4"
+                  className="nav-item mx-4"
                   type="button"
                   onClick={() => this.exibirCategoria("lavadora")}
                 >
                   Lavadoras
                 </li>
                 <li
-                  class="nav-item mx-4"
+                  className="nav-item mx-4"
                   type="button"
                   onClick={() => this.exibirCategoria("lavaLoucas")}
                 >

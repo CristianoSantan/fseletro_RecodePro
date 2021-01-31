@@ -7,9 +7,8 @@
 .bemvindo img {
   position: absolute;
   right: -36px;
-  bottom: -121px;
+  bottom: -119px;
   width: 653px;
-  height: 431px;
 }
 
 .bemvindo h3 {
@@ -18,10 +17,40 @@
   color: #bed4dd;
 }
 
-.bemvindo-p {
+.bemvindo p {
   width: 470px;
   height: 153px;
   font: 300 clamp(1.8rem, 2vw, 2.8rem)/1.6 "Roboto Slab", serif !important;
   color: #bed4dd;
   text-align: left !important;
+}
+
+@media (max-width: 600px) {
+  .bemvindo {
+    text-align: center;  
+    height: 360px;
+    margin-bottom: 4rem;
+  }
+
+  .content {
+    height: 90vh;
+  }
+
+  .bemvindo h3 {
+    margin-top: 35px;
+  }
+
+  .bemvindo p {
+    margin: 0 auto;
+    width: 90%;
+    text-align: center !important; 
+  }
+
+  .bemvindo img {
+    width: 80vw;
+    margin: 0px auto;
+    right: initial;
+    bottom: 60px;
+    position: relative;
+  }
 }

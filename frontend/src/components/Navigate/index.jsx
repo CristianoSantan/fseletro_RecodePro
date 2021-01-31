@@ -3,7 +3,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import "./styles.css";
-
 import logo from "../../assets/img/Full-Stack_logo.svg";
 
 export default function Nav() {
@@ -12,7 +11,7 @@ export default function Nav() {
    return (
     <>
       <nav id="menu" className="navbar navbar-expand-lg shadow">
-        <div className="container w-100">
+        <div id='content-menu' className="container w-100">
           <NavLink className="navbar-brand w-25" to="/">
             <img width="110px" src={logo} alt="Logo" />
           </NavLink>

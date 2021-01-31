@@ -24,7 +24,7 @@ export default function Cart() {
       </div>
       <div className="section">
         <div className="car table-responsive p-5">
-          <table class="table table-hover text-center">
+          <table className="table table-hover text-center">
             <thead>
               <tr>
                 <th scope="col">#</th>

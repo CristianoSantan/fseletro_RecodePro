@@ -12,21 +12,21 @@ export default function Shop() {
       <div className="header">
         <div className="container">Lojas</div>
       </div>
-      <div className="main">
-        <div className="section container d-flex justify-content-between">
-          <div className="location">
+      <div className="main container my-5">
+        <div className="section d-flex justify-content-center row">
+          <div className="location col">
             <img className="location-foto" src={rj} alt="rio de janeiro" />
             <p>Rio de Janeiro</p>
             <p>
               Av. Presidente Vargas, 5000 - 10º andar - Centro (21)3333-3333
             </p>
           </div>
-          <div className="location">
+          <div className="location col">
             <img className="location-foto" src={sp} alt="são paulo" />
             <p>São Paulo</p>
             <p>Av. Paulista, 985 - 3º andar - Jardins (11)4444-4444</p>
           </div>
-          <div className="location">
+          <div className="location col">
             <img className="location-foto" src={sc} alt="santa catarina" />
             <p>Santa Catarina</p>
             <p>Rua Major Ávila, 370 - Vila Mariana (47)5555-5555</p>

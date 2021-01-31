@@ -88,8 +88,8 @@ export default function Contact() {
       <div className="header">
         <div className="container">Contato</div>
       </div>
-      <div className="section container d-flex justify-content-between">
-        <div className="contacts">
+      <div className="section d-flex justify-content-center my-5 row">
+        <div className="contacts col-lg-3 col-md-4 col-sm-6 col-xs-9 my-5">
           <div className="wtz">
             <img src={wtz} alt="whatsapp" />
             <p>(11) 98877-4433</p>
@@ -147,7 +147,7 @@ export default function Contact() {
             </div>
           </form>
         </div>
-        <div className="messages">
+        <div className="messages col-lg-3 col-md-4 col-sm-6 col-xs-9 my-5">
           <h4>Mensagens</h4>
           {student.map((row) => (
             <div key={student.id} className="media text-muted pt-3  border-bottom">

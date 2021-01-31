@@ -1,67 +1,133 @@
-div .main-footer {
+.main-footer {
   background: rgba(21, 24, 25, 0.8);
   display: block;
 }
 .section-1 {
   display: flex;
-  width: 80vw;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: top;
-  padding: 48px 0 30px;
+  margin: 0px auto;
+  justify-content: space-around;
+  /* align-items: top; */
+  padding: 4.0rem 0rem 3.0rem;
 }
 
 div p {
   font-size: 1.8rem;
-  color:  #52525e;
+  color: #52525e;
 }
 
-.bandeiras {
-  width: 350px;
+.bandeiras img {
+  width: clamp(25rem, 25vw, 30.0rem);
 }
 
 .main .section-1 div:nth-child(2) {
   text-align: center;
 }
 
-.bio {
-    display: flex;
-    justify-content: space-between;
-}
-
-.bio p {
-  color: #616d72;
-  font-size: 2rem;
+.foto {
+  display: flex;
+  justify-content: center;
 }
 
 .foto img {
-  margin-right: 15px;
-  width: 75px;
-  height: 75px;
-  border-radius: 50px;
-  border: 3px solid #616d72;
+  margin-right: 1.5rem;
+  width: 7.0rem;
+  height: 7.0rem;
+  border-radius: 5.0rem;
+  border: .3rem solid #616d72;
 }
 
-strong {
+.foto div {
+  margin-top: .6rem;
+}
+
+.foto strong {
   color: #616d72;
-  font-size: 2.4rem;
+  font-size: clamp(1.8rem, 1.5vw, 2rem);
+}
+
+.foto p {
+  color: #616d72;
+  font-size: clamp(1.8rem, 1.5vw, 2rem);
+}
+
+.stacks {
+}
+
+.stacks p {
+  margin-bottom: 3rem;
 }
 
 .stacks img {
-  width: 280px;
+  width: clamp(18rem, 20vw, 24.0rem);
 }
 
 .section-2 {
-  bottom: 0px;
+  bottom: 0rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 45px;
+  height: 4.5rem;
   background: #202024;
 }
 
 .section-2 p {
-  padding-top: 5px;
+  padding-top: .5rem;
   font-size: 2rem;
   color: #616d72;
+}
+
+@media (max-width: 600px) {
+  .section-1 {
+    padding: 30px 0px;
+  }
+
+  .bandeiras p {
+    font-size: 1.6rem;
+  }
+
+  .bandeiras img {
+    width: 250px;
+  }
+
+  .bio {
+    margin: 35px 0px;
+  }
+
+  .bio p {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+  }
+
+  .foto {
+    width: 300px;
+    justify-content: center;
+    margin: 0px auto;
+  }
+
+  .foto strong {
+    font-size: 2.2rem;
+  }
+
+  .foto p {
+    font-size: 2rem;
+  }
+
+  .foto img {
+    margin: 0px 15px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .stacks p {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .stacks img {
+    width: 200px;
+  }
+}
+
+@media (max-width: 1200px) {
+
 }
