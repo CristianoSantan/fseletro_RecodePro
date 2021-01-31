@@ -6,7 +6,7 @@ import wtz from "../assets/img/whatsapp.png";
 import astronaut5 from "../assets/img/astronauta5.png";
 
 export default function Contact() {
-  const [student, setStudent] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [render, setRender] = useState(false);
   const [msg, setMsg] = useState({
     formSave: false,
@@ -21,7 +21,7 @@ export default function Contact() {
   useEffect(() => {
     async function fetchMyAPI() {
       const response = await fetch("http://localhost:3001/messages");
-      setStudent(await response.json());
+      setMessages(await response.json());
     }
     fetchMyAPI();
   }, [render]);
@@ -89,7 +89,7 @@ export default function Contact() {
         <div className="container">Contato</div>
       </div>
       <div className="section d-flex justify-content-center my-5 row">
-        <div className="contacts col-lg-3 col-md-4 col-sm-6 col-xs-9 my-5">
+        <div className="contacts col-lg-3 col-md-4 col-sm-6 col-xs-9">
           <div className="wtz">
             <img src={wtz} alt="whatsapp" />
             <p>(11) 98877-4433</p>
@@ -147,11 +147,11 @@ export default function Contact() {
             </div>
           </form>
         </div>
-        <div className="messages col-lg-3 col-md-4 col-sm-6 col-xs-9 my-5">
+        <div className="messages col-lg-3 col-md-4 col-sm-6 col-xs-9">
           <h4>Mensagens</h4>
-          {student.map((row) => (
-            <div key={student.id} className="media text-muted pt-3  border-bottom">
-              <svg
+          {messages.map((row) => (
+            <div key={messages.id} className="media text-muted pt-3  border-bottom">
+              {/* <svg
                 className="bd-placeholder-img mr-2 rounded"
                 width="32"
                 height="32"
@@ -166,10 +166,10 @@ export default function Contact() {
                 <text x="50%" y="50%" fill="#007bff" dy=".3em">
                   32x32
                 </text>
-              </svg>
+              </svg> */}
               <div className="media-body pb-3 mb-0 small lh-125 border-gray">
                 <div className="d-flex justify-content-between align-items-center w-100">
-                  <strong className="text-gray-dark">{row.nome}</strong>
+                  <strong className="text-gray-dark display-4">{row.nome}</strong>
                   <p>{formatDate(row.data)}</p>
                 </div>
                 <p className="d-block">{row.msg}</p>

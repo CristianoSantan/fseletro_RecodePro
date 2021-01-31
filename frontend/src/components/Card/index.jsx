@@ -16,6 +16,7 @@ export default function Card() {
     fetchMyAPI();
   }, []);
 
+  // ------------------------------ Redux
   function handleAdd(buy) {
     dispatch({
       type: "ADD_COMPRA",
@@ -37,7 +38,7 @@ export default function Card() {
     <div className="section-cards container row justify-content-around my-5">
       {arrayProdutos.map((buy) => (
         <div
-          key={buy.id}
+          key={buy.idproduto}
           className="card-produto col-lg-3 col-md-4 col-sm-6 col-xs-9"
           id={buy.categoria}
         >

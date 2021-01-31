@@ -23,7 +23,7 @@ export default function Cart() {
         <div className="container">Carrinho</div>
       </div>
       <div className="section">
-        <div className="car table-responsive p-5">
+        <div className="car table-responsive p-5 w-100">
           <table className="table table-hover text-center">
             <thead>
               <tr>
@@ -39,7 +39,13 @@ export default function Cart() {
             <tbody>
               {compras.map((buy) => (
                 <tr>
-                  <th scope="row">{buy.id}</th>
+                  <th scope="row">
+                    <img
+                      src={buy.imagem}
+                      alt=""
+                      height="100px"
+                    />
+                  </th>
                   <td>{buy.categoria}</td>
                   <td>{buy.descricao}</td>
                   <td>{buy.precofinal}</td>
@@ -62,7 +68,7 @@ export default function Cart() {
           </table>
 
           {/* <Requests /> */}
-
+          
         </div>
       </div>
       <img className="astronaut6" src={astronaut6} alt="" />

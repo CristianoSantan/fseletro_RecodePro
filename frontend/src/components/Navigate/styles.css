@@ -9,9 +9,24 @@ span {
   font-family: "Roboto Mono", monospace;
   font-size: 2.4rem;
   color: #616d72;
+  position: relative;
 }
 
 span:hover{
   color: #ed145b;
+}
+
+.counter {
+  position: absolute;
+  width: 2.3rem;
+  height: 2.3rem;
+  background: #ed145b;
+  color: #151819;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  right: -10px;
+  top: -8px;
+  border-radius: 50%;
 }
 

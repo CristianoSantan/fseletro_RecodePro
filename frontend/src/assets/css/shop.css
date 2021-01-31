@@ -13,6 +13,10 @@
     border-bottom: 1px solid #BED4DD;
 }
 
+.section {
+  width: 100%;
+}
+
 .main .section div {
   width: 263px;
   height: 587px;

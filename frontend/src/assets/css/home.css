@@ -12,7 +12,7 @@
 }
 
 .bemvindo h3 {
-  margin-top: 70px;
+  padding-top: 70px;
   font: 400 clamp(5.4rem, 8vw, 8.4rem)/1.2 "Roboto Slab", serif;
   color: #bed4dd;
 }
@@ -28,7 +28,7 @@
 @media (max-width: 600px) {
   .bemvindo {
     text-align: center;  
-    height: 360px;
+    height: 435px;
     margin-bottom: 4rem;
   }
 
@@ -47,7 +47,7 @@
   }
 
   .bemvindo img {
-    width: 80vw;
+    width: clamp(28rem, 90vw, 30rem);
     margin: 0px auto;
     right: initial;
     bottom: 60px;

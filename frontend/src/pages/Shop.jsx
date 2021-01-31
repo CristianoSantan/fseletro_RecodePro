@@ -12,8 +12,8 @@ export default function Shop() {
       <div className="header">
         <div className="container">Lojas</div>
       </div>
-      <div className="main container my-5">
-        <div className="section d-flex justify-content-center row">
+      <div className="main container my-5 w-100">
+        <div className="section d-flex justify-content-center row w-100">
           <div className="location col">
             <img className="location-foto" src={rj} alt="rio de janeiro" />
             <p>Rio de Janeiro</p>

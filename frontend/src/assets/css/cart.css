@@ -33,7 +33,13 @@ table {
 
 .astronaut6 {
   position: absolute;
-  bottom: -40px;
+  bottom: -85px;
   right: 0px;
   width: 230px;
+}
+
+@media (max-width: 600px) {
+  .astronaut6 {
+    display: none;
+  }
 }
