@@ -7,7 +7,6 @@ import astronaut from "../assets/img/astronauta3.png";
 
 export default class Products extends React.Component {
 
-
   constructor(props) {
     super(props);
     // this.exibirProdutos();

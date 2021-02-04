@@ -50,7 +50,7 @@ export default function Cart() {
                   <td>{buy.descricao}</td>
                   <td>{buy.precofinal}</td>
                   <td>{buy.amount}</td>
-                  <td>x</td>
+                  <td>{buy.precofinal*buy.amount}</td>
                   <td>
                     <button
                       type="button"
