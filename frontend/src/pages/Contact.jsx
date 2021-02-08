@@ -18,6 +18,7 @@ export default function Contact() {
     msg: "",
   });
 
+  // ------------------------------ Api messages
   useEffect(() => {
     async function fetchMyAPI() {
       const response = await fetch("http://localhost:3001/messages");
@@ -29,6 +30,7 @@ export default function Contact() {
   const onChangeInput = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  // ------------------------------ Postagens formulario
   const sendForm = async (e) => {
     e.preventDefault();
     try {
@@ -72,6 +74,7 @@ export default function Contact() {
     }, 2000);
   };
 
+  // ------------------------------ Formatação da data de mensagens
   const formatDate = (rawDate) => {
     const myDate = new Date(rawDate);
     const d = myDate.getDay();
@@ -150,23 +153,7 @@ export default function Contact() {
         <div className="messages col-lg-3 col-md-4 col-sm-6 col-xs-9">
           <h4>Mensagens</h4>
           {messages.map((row) => (
-            <div key={messages.id} className="media text-muted pt-3  border-bottom">
-              {/* <svg
-                className="bd-placeholder-img mr-2 rounded"
-                width="32"
-                height="32"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-                aria-label="Placeholder: 32x32"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#007bff"></rect>
-                <text x="50%" y="50%" fill="#007bff" dy=".3em">
-                  32x32
-                </text>
-              </svg> */}
+            <div className="media text-muted pt-3  border-bottom">
               <div className="media-body pb-3 mb-0 small lh-125 border-gray">
                 <div className="d-flex justify-content-between align-items-center w-100">
                   <strong className="text-gray-dark display-4">{row.nome}</strong>

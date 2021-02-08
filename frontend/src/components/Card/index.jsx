@@ -7,7 +7,7 @@ export default function Card() {
   const dispatch = useDispatch();
   const [arrayProdutos, setArrayProdutos] = useState([]);
 
-  // -------------------------------------   Api Products
+  // ------------------------------ Api Products
   useEffect(() => {
     async function fetchMyAPI() {
       const response = await fetch("http://localhost:3001/products");
@@ -24,6 +24,7 @@ export default function Card() {
     });
   }
 
+  // ------------------------------ Destacar produto
   const destaqueProd = (event) => {
     let tam = event.target.style.height;
     let estilo = "";
@@ -38,7 +39,6 @@ export default function Card() {
     <div className="section-cards container row justify-content-around my-5">
       {arrayProdutos.map((buy) => (
         <div
-          key={buy.idproduto}
           className="card-produto col-lg-3 col-md-4 col-sm-6 col-xs-9"
           id={buy.categoria}
         >
