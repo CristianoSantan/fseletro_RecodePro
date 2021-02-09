@@ -39,6 +39,7 @@ export default function Card() {
     <div className="section-cards container row justify-content-around my-5">
       {arrayProdutos.map((buy) => (
         <div
+          key={buy.id}
           className="card-produto col-lg-3 col-md-4 col-sm-6 col-xs-9"
           id={buy.categoria}
         >
@@ -46,7 +47,6 @@ export default function Card() {
             src={buy.imagem}
             onMouseOver={destaqueProd}
             onMouseOut={destaqueProd}
-            id={buy.idproduto}
             alt=""
           />
           <p>{buy.descricao}</p>

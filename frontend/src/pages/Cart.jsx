@@ -1,21 +1,11 @@
-import { useSelector, useDispatch } from "react-redux";
-
-import { IoTrashOutline } from "react-icons/io5";
+import React, { lazy, Suspense } from "react";
 import "../assets/css/cart.css";
 import astronaut6 from "../assets/img/astronauta6.png";
 
-// import Requests from "../components/Requests";
+const TableCart = lazy(() => import('../components/TableCart'));
+// const Requests = lazy(() => import('../components/Requests'));
 
 export default function Cart() {
-  const dispatch = useDispatch();
-  const compras = useSelector((state) => state.carrinho);
-
-  function handleRemove(id) {
-    dispatch({
-      type: "REMOVE_BUY",
-      id,
-    });
-  }
 
   return (
     <>
@@ -24,50 +14,14 @@ export default function Cart() {
       </div>
       <div className="section">
         <div className="car table-responsive p-5 w-100">
-          <table className="table table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">categoria</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">R$ Unidade</th>
-                <th scope="col">Quant.</th>
-                <th scope="col">R$ Total</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {compras.map((buy) => (
-                <tr>
-                  <th scope="row">
-                    <img
-                      src={buy.imagem}
-                      alt=""
-                      height="100px"
-                    />
-                  </th>
-                  <td>{buy.categoria}</td>
-                  <td>{buy.descricao}</td>
-                  <td>{buy.precofinal}</td>
-                  <td>{buy.amount}</td>
-                  <td>{buy.precofinal*buy.amount}</td>
-                  <td>
-                    <button
-                      type="button"
-                      onClick={() => handleRemove(buy.id)}
-                      style={{ background: "transparent", border: "none" }}
-                    >
-                      <div>
-                        <IoTrashOutline size={16} color="#FFF" />
-                      </div>
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
 
-          {/* <Requests /> */}
+          <Suspense fallback={<p>Carregando...</p>}>
+            <TableCart />
+          </Suspense>          
+
+          {/* <Suspense fallback={<p>Carregando...</p>}>
+            <Requests />
+          </Suspense> */}
           
         </div>
       </div>
