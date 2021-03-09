@@ -5,14 +5,13 @@
 
 
 | figma | home |
-| --- | --- |
+| :---: | :---: |
 | <img src="./frontend/src/assets/img/bastidores/figma.png"> | <img src="./frontend/src/assets/img/bastidores/fse_home.png"> |
 | produtos | lojas |
-| --- | --- |
 | <img src="./frontend/src/assets/img/bastidores/fse_produtos.png"> | <img src="./frontend/src/assets/img/bastidores/fse_lojas.png"> |
 | contato | carrinho |
-| --- | --- |
-| <img src="./frontend/src/assets/img/bastidores/fse_contato.png"> | <img src="./frontend/src/assets/img/bastidores/fse_carrinho.png"> |
+| <img src="./frontend/src/assets/img/bastidores/fse_contatos.png"> | <img src="./frontend/src/assets/img/bastidores/fse_carrinho.png"> |
+| erro 404 |  |
 | <img src="./frontend/src/assets/img/bastidores/fse_erro.png"> | |
 
 
