@@ -4,9 +4,16 @@
 [conheça a página](https://fseletro-frontend.herokuapp.com/)
 
 
-| figma | web |
+| figma | home |
 | --- | --- |
-| <img src="./frontend/src/assets/img/bastidores/figma.png"> | <img src="./frontend/src/assets/img/bastidores/Full Stack Eletro - carrinho.png"> |
+| <img src="./frontend/src/assets/img/bastidores/figma.png"> | <img src="./frontend/src/assets/img/bastidores/fse_home.png"> |
+| produtos | lojas |
+| --- | --- |
+| <img src="./frontend/src/assets/img/bastidores/fse_produtos.png"> | <img src="./frontend/src/assets/img/bastidores/fse_lojas.png"> |
+| contato | carrinho |
+| --- | --- |
+| <img src="./frontend/src/assets/img/bastidores/fse_contato.png"> | <img src="./frontend/src/assets/img/bastidores/fse_carrinho.png"> |
+| <img src="./frontend/src/assets/img/bastidores/fse_erro.png"> | |
 
 
 ### 🛠 Tecnologias
