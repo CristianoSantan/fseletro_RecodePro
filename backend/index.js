@@ -1,8 +1,8 @@
 const server = require('./src/config/server');
-const messagesModel = require('./src/models/messagesModel');
 const mysqlConnection = require('./src/config/mysqlConnection');
 const mongoConnection = require('./src/config/mongoConnection');
 const productsModel = require('./src/models/productsModel');
+const messagesModel = require('./src/models/messagesModel');
 
 // --------------------------------------------- MongoDB
 server.get('/products', async (req, res) => {
@@ -19,11 +19,11 @@ server.post('/messages', async (req, res) => {
 });
 
 // --------------------------------------------------- MySQL
-server.get("/produtos", (req, res) => {
-  mysqlConnection.query("SELECT * FROM produtos", (error, result) => {
-    res.json(result ? result : error);
-  });
-});
+// server.get("/produtos", (req, res) => {
+//   mysqlConnection.query("SELECT * FROM produtos", (error, result) => {
+//     res.json(result ? result : error);
+//   });
+// });
 
 // server.get("/messages", (req, res) => {
 //   mysqlConnection.query(
@@ -51,8 +51,8 @@ server.get("/produtos", (req, res) => {
 //   );
 // });
 
-server.get("/carrinho", (req, res) => {
-    mysqlConnection.query("SELECT * FROM teste", (error, result) => {
-        res.json(result ? result : error);
-    });
-});
+// server.get("/carrinho", (req, res) => {
+//     mysqlConnection.query("SELECT * FROM teste", (error, result) => {
+//         res.json(result ? result : error);
+//     });
+// });
