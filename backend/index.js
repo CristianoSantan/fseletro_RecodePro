@@ -2,11 +2,11 @@ const server = require('./src/config/server');
 const messagesModel = require('./src/models/messagesModel');
 const mysqlConnection = require('./src/config/mysqlConnection');
 const mongoConnection = require('./src/config/mongoConnection');
+const productsModel = require('./src/models/productsModel');
 
-server.get("/products", (req, res) => {
-  mysqlConnection.query("SELECT * FROM produtos", (error, result) => {
-    res.json(result ? result : error);
-  });
+// --------------------------------------------- MongoDB
+server.get('/products', async (req, res) => {
+  res.json(await productsModel.find());
 });
 
 server.get('/messages', async (req, res) => {
@@ -18,7 +18,13 @@ server.post('/messages', async (req, res) => {
   res.json(await messagesModel.create({ nome, msg }));
 });
 
-// -----------------------------------
+// --------------------------------------------------- MySQL
+server.get("/produtos", (req, res) => {
+  mysqlConnection.query("SELECT * FROM produtos", (error, result) => {
+    res.json(result ? result : error);
+  });
+});
+
 // server.get("/messages", (req, res) => {
 //   mysqlConnection.query(
 //     "SELECT * FROM comentarios order by id desc",

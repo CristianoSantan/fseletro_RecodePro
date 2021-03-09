@@ -10,7 +10,7 @@ export default function Card() {
   // ------------------------------ Api Products
   useEffect(() => {
     async function fetchMyAPI() {
-      const response = await fetch("http://localhost:3001/products");
+      const response = await fetch("https://fseletro-backend.herokuapp.com/products");
       setArrayProdutos(await response.json());
     }
     fetchMyAPI();
