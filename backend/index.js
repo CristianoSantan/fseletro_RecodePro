@@ -10,7 +10,7 @@ server.get('/products', async (req, res) => {
 });
 
 server.get('/messages', async (req, res) => {
-  res.json(await messagesModel.find());
+  res.json(await messagesModel.find().sort({_id: -1}));
 });
 
 server.post('/messages', async (req, res) => {
