@@ -3,7 +3,7 @@
 
 [conheça a página](https://fseletro-frontend.herokuapp.com/)
 
-<img src="./frontend/src/assets/img/bastidores/figma.png">
+| <img src="./frontend/src/assets/img/bastidores/figma.png"> | <img src="./frontend/src/assets/img/bastidores/Full Stack Eletro - carrinho.png"> |
 
 ### 🛠 Tecnologias
 
