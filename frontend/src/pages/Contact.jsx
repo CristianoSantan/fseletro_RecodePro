@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense } from "react";
 
 import "../assets/css/contact.css";
 import astronaut5 from "../assets/img/astronauta5.png";
@@ -8,8 +8,6 @@ const Contacts = lazy(() => import('../components/Contacts'));
 
 export default function Contact() {
   
-  const [render, setRender] = useState(false);
-
   return (
     <>
       <div className="header">
@@ -18,11 +16,11 @@ export default function Contact() {
       <div className="section d-flex justify-content-center my-5 row">
 
         <Suspense fallback={<p>Carregando...</p>}>
-          <Contacts render={render} setRender={setRender} />
+          <Contacts />
         </Suspense>
 
         <Suspense fallback={<p>Carregando...</p>}>
-          <Message render={render} />
+          <Message />
         </Suspense>
         
       </div>

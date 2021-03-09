@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 
-export default function Message(render) {
+export default function Message() {
   
   const [messages, setMessages] = useState([]);
 
   // ------------------------------ Api messages
   useEffect(() => {
     async function fetchMyAPI() {
-      const response = await fetch("http://localhost:3001/messages");
+      const response = await fetch("https://fseletro-backend.herokuapp.com/messages");
       setMessages(await response.json());
     }
     fetchMyAPI();
-  }, [render]);
+  }, [messages]);
   
   // ------------------------------ Formatação da data de mensagens
   const formatDate = (rawDate) => {
     const myDate = new Date(rawDate);
-    const d = myDate.getDay();
+    const d = myDate.getDate();
     const mo = myDate.getMonth() + 1;
     const y = myDate.getFullYear();
     const h = myDate.getHours();

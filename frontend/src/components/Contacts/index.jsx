@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import email from "../../assets/img/email.png";
 import wtz from "../../assets/img/whatsapp.png";
 
-export default function Contacts(render, setRender) {
+export default function Contacts() {
   const [msg, setMsg] = useState({
     formSave: false,
     type: "",
@@ -18,12 +18,11 @@ export default function Contacts(render, setRender) {
   const sendForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3001/messages", {
+      const res = await fetch("https://fseletro-backend.herokuapp.com/messages", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
       }).then((dados) => {
-        setRender(!render);
         setFormData({
           nome: "",
           msg: "",
